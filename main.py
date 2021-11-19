@@ -1,6 +1,10 @@
+class Verificator:
+    def check_ua_letters(self, str, another_sym=''):
+        self.str_set = set(str)
+
 class Human:
-    def __init__(self, f_n , s_n, ph='+38xxxxxxxxxx'):
-        if f_n == None:
+    def __init__(self, f_n, s_n, ph='+38xxxxxxxxxx'):
+        if f_n is None:
             self.input_value()
         else:
             self._first_name = f_n
@@ -26,14 +30,14 @@ class Human:
         return self._second_name
 
     def get_phone(self):
-        return  self._phone
+        return self._phone
 
     def input_value(self):
         print("Human")
 
 
 class Student(Human):
-    def __init__(self, f_n = None, s_n = None, age = None, ph='+38xxxxxxxxxx'):
+    def __init__(self, f_n=None, s_n=None, age=None, ph='+38xxxxxxxxxx'):
         super().__init__(f_n, s_n, ph)
         if self._age is None:
             self._age = age
@@ -56,7 +60,7 @@ class Student(Human):
 
 
 class Parent(Human):
-    def __init__(self, f_n = None, s_n = None, t = None, ph='+38xxxxxxxxxx'):
+    def __init__(self, f_n=None, s_n=None, t=None, ph='+38xxxxxxxxxx'):
         super().__init__(f_n, s_n, ph)
         if self._type is None:
             self._type = t
@@ -64,8 +68,8 @@ class Parent(Human):
     def __str__(self):
         return f"{self._first_name} {self._second_name}, {self._type}, mob.{self._phone}"
 
-    def set_type(self, type):
-        self._type = type
+    def set_type(self, t):
+        self._type = t
 
     def get_type(self):
         return self._type
@@ -79,7 +83,7 @@ class Parent(Human):
 
 
 class Teacher(Human):
-    def __init__(self, f_n = None, s_n = None, age = None, covid = None, ph='+38xxxxxxxxxx'):
+    def __init__(self, f_n=None, s_n=None, age=None, covid=None, ph='+38xxxxxxxxxx'):
         super().__init__(f_n, s_n, ph)
         if self._age is None:
             self._age = age
@@ -107,7 +111,6 @@ class Teacher(Human):
         self.set_age(input("Age: "))
         self.set_phone(input("Phone: "))
         self.set_covid(input("Vaccine: "))
-
 
 
 # s1 = Student("Dafydd", "Idontknowenko", 6)
