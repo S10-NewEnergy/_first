@@ -1,6 +1,6 @@
 class Verificator:
-    def check_ua_letters(self, str, another_sym=''):
-        self.str_set = set(str)
+    def check_ua_letters(self, str_to_check, another_sym=''):
+        self.str_set = set(str_to_check)
 
 class Human:
     def __init__(self, f_n, s_n, ph='+38xxxxxxxxxx'):
