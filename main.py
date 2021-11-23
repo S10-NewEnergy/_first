@@ -1,6 +1,8 @@
 class Verificator:
     def check_ua_letters(self, str_to_check, another_sym=''):
-        self.str_set = set(str_to_check)
+        self.alf_set = set("йцукенгшщзхїфівапролджєячсмитьбюґ")
+        self.alf_set.union(set(another_sym))
+        return set(str_to_check).difference(self.alf_set)
 
 class Human:
     def __init__(self, f_n, s_n, ph='+38xxxxxxxxxx'):
@@ -36,7 +38,7 @@ class Human:
         print("Human")
 
 
-class Student(Human):
+class Student(Human, Verificator):
     def __init__(self, f_n=None, s_n=None, age=None, ph='+38xxxxxxxxxx'):
         super().__init__(f_n, s_n, ph)
         if self._age is None:
@@ -54,6 +56,8 @@ class Student(Human):
     def input_value(self):
         print("Student")
         self.set_first_name(input("First name: "))
+        if(len(self.check_ua_letters(self._first_name)) == 0):
+            print("Ok")
         self.set_second_name(input("Second name: "))
         self.set_age(input("Age: "))
         self.set_phone(input("Phone: "))
